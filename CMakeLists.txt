@@ -16,7 +16,10 @@ add_library(Boost::config ALIAS boost_config)
 # -----------------------------------------------------------------------------
 if(NOT BOOST_USE_MODULES)
   target_include_directories(boost_config INTERFACE include)
-else()
+endif()
+
+# Note: usable starting with cmake v3.23
+if(NOT CMAKE_VERSION VERSION_LESS 3.23)
   target_sources(
     boost_config
     PUBLIC
